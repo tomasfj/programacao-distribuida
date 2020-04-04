@@ -43,9 +43,9 @@ if __name__ == "__main__":
     lock = multiprocessing.Lock()
 
     # numero de matrizes a ser criadas
-    n_matrizes = 2
+    n_matrizes = 200
     # dimensão das matrizes
-    d = 2
+    d = 200
 
     start = time.time()
     t1 = multiprocessing.Process(target=pro1, args=(queue, lock, n_matrizes, d))
@@ -55,4 +55,17 @@ if __name__ == "__main__":
     t1.join()
     t2.join()
 
-    print("Execution time = %s" %(time.time()-start))
+    print("Execution time = %.4f seconds" %(time.time()-start))
+
+
+'''
+Resultados:
+n_matrizes  | dimensão   | tempo de execução
+---------------------------------------------
+2           | 2x2       | 0.0291 segundos
+2           | 10x10     | 0.0316 segundos
+10          | 2x2       | 0.0815 segundos
+10          | 10x10     | 0.0850 segundos
+100         | 100x100   | 1.5178 segundos
+200         | 200x200   | 8.0224 segundos
+'''

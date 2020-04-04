@@ -19,8 +19,8 @@ from multiprocessing import Process
 # Execução Sequencial
 class nothreads_object(object):
     def run(self):
-        function_to_run_fibbo()
-        #function_to_run_url()
+        #function_to_run_fibbo()
+        function_to_run_url()
         #function_to_run_file()
 
 def non_threaded(num_iter):
@@ -35,8 +35,8 @@ def non_threaded(num_iter):
 # Execução multithreaded
 class threads_object(Thread):
     def run(self):
-        function_to_run_fibbo()
-        #function_to_run_url()
+        #function_to_run_fibbo()
+        function_to_run_url()
         #function_to_run_file()
 
 def threaded(num_threads):
@@ -58,8 +58,8 @@ def show_results(func_name, results):
 # Execução multiprocessing
 class process_object(Process):
     def run(self):
-        function_to_run_fibbo()
-        #function_to_run_url()
+        #function_to_run_fibbo()
+        function_to_run_url()
         #function_to_run_file()
 
 def processed(num_processes):
@@ -125,8 +125,6 @@ if __name__ == "__main__":
     print("Iterations complete")
 
 
-
-
 '''
 Apresentação de resultados:
 
@@ -145,15 +143,22 @@ destacou-se em relação às outras (no que toca ao tempo de execução).
 
 URL (F2)
 Threads | Sequencial    | Threaded      | Processed
-1       | 0.140220 s    | 0.142309 s    | 0.171712 s
-2       | 0.278199 s    | 0.276906 s    | 0.162182 s
-4       | 0.592690 s    | 0.568686 s    | 0.209662 s
-8       | 1.138981 s    | 1.127482 s    | 0.313482 s
+1       | 4.237558 s    | 4.487031 s    | 4.510582 s
+2       | 8.526937 s    | 5.060087 s    | 4.090834 s
+4       | 17.99895 s    | 5.126970 s    | 4.814211 s
+8       | 33.76315 s    | 5.157609 s    | 5.259390 s
+
+Análise: À medida que o número de threads/processos aumentou a solução
+sequencial verificou um aumento no tempo de execução enquanto que as outras
+duas soluções se mantiveram relativamente constantes.
 
 ReadFile (F3)
 Threads | Sequencial    | Threaded      | Processed
-1       | 0.140220 s    | 0.142309 s    | 0.171712 s
-2       | 0.278199 s    | 0.276906 s    | 0.162182 s
-4       | 0.592690 s    | 0.568686 s    | 0.209662 s
-8       | 1.138981 s    | 1.127482 s    | 0.313482 s
+1       | 0.005640 s    | 0.005557 s    | 0.014764 s
+2       | 0.010888 s    | 0.009978 s    | 0.019795 s
+4       | 0.021694 s    | 0.054544 s    | 0.026143 s
+8       | 0.043437 s    | 0.111490 s    | 0.044909 s
+
+Análise: Neste caso a solução sequencial foi a apresentou melhores
+resultados e a solução threaded acabou por ser a mais demorada.
 '''
